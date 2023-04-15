@@ -9,7 +9,7 @@ api=Api(app)
 class addmail(Resource):
     def get(self, data):
         try:
-            details = data.split("_")
+            details = data.split("&")
             test=add_mail(details[1], details[0])
             if(test=="Error"):
                 return {
