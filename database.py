@@ -10,7 +10,7 @@ password = os.getenv('DATAPASSKEY')
 uri = f"mongodb+srv://{username}:{password}@clipsurf.upczxaf.mongodb.net/?retryWrites=true&w=majority"
 client = MongoClient(uri, server_api=ServerApi('1'))
 
-def add_mail(name, email):
+def add_mail(name, email, queue):
     try:
         client.admin.command('ping')
     except Exception as e:
@@ -24,4 +24,5 @@ def add_mail(name, email):
         'email' : email
     }
     result = collection.insert_one(document)
-    return result
+    queue.put(result)
+    return
