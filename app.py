@@ -14,7 +14,7 @@ class addmail(Resource):
     @cross_origin()
     def get(self, data):
         try:
-            details = data.split("_")
+            details = data.split("&")
             queue=multiprocessing.Queue()
             p1 = multiprocessing.Process(target=add_mail, args=(details[1], details[0], queue))
 
