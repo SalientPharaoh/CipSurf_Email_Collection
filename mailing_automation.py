@@ -17,8 +17,9 @@ class sendmail():
         msg = MIMEMultipart()
         msg['From'] = self.sender_email
         msg['To'] = mailto
-        msg['Subject'] = 'You\'re in! Get ready to be the first to know about our new product.'
-        body = f"Hi! {name},\n\n Thank You! Stay healthy and Enjoy!\n\n"
+        msg['Subject'] = 'Congrats! You\'re in!'
+        
+        body = f"Dear {name},\n\n I wanted to take a moment to say thank you and to let you know what to expect from us in the future.\n To ensure that you receive our future communications, please add our email address to your contacts. This will help prevent our emails from ending up in your spam folder.\n\n Thank you again for your support and we look forward to keeping you informed about all the exciting things happening at ClipSurf.\n\nBest regards,\nTeam ClipSurf\n\n"
 
         msg.attach(MIMEText(body, 'plain'))
 
